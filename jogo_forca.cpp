@@ -1,25 +1,30 @@
 #include <iostream>
 #include <cstdlib>
+#include <stdio.h>
+
 #define linha cout << "\n===================\n";
 using namespace std;
 
 int main(){
-    char palavra[30],letra, secreta[30];
+    char *palavra,letra, *secreta;
     int vidas = 5,tamanho = 0, index = 0,acertos = 0;
     bool letra_certa = false;
+
+    palavra = (char *)malloc(sizeof(char));
+    secreta = (char *)malloc(sizeof(char));
 
     linha;
     cout << "JOGO DA FORCA";
     linha;
     cout << "digite uma palavra para o seu amigo acertar: ";
-    cin >> palavra;
+    gets(palavra);
     linha;
 
     while(palavra[index] != '\0'){
         index++;
         tamanho++;
     }
-    for(index=0; index<30; index++){
+    for(index=0; index<tamanho; index++){
         secreta[index] = '-';
     }
 
